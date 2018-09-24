@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game (Basic)</title>
 </head>
+
 <body>
     <h1>The Psychic Game</h1>
     <p>Guess what letter I'm thinking of</p>
@@ -18,6 +20,8 @@
         var wins = 0;
         var losses = 0;
         var left = 9;
+        var alph = "abcdefghijklmnopqrstuvwxyz";
+        var sofar = "";
         var pWins = document.getElementById("p-wins");
         var pLoss = document.getElementById("p-los");
         var pLeft = document.getElementById("p-left");
@@ -25,17 +29,42 @@
         pWins.innerHTML = wins;
         pLoss.innerHTML = losses;
         pLeft.innerHTML = left;
-
-        //document.getElementById("p-guess").innerHTML = ;
-        document.addEventListener('keydown', function(event){
+        var randIndex = Math.floor(Math.random()*alph.length);
+        var randomChar = alph[randIndex];
+        console.log(randomChar);
+        
+        
+        document.addEventListener('keydown', function (event) {
+            if (alph.indexOf(event.key) == -1) {
+                return;
+            }
+            if (event.key == randomChar){
+                wins++;
+                pWins.innerHTML = wins;
+                left = 9; 
+                sofar = "";
+            }
             console.log(event.key);
-            pGuess.innerHTML = event.key;
-            var i;
-            for (i=o; i<left; i++) {
-                left--;
+            if (sofar == "") {
+                sofar = sofar + event.key;
+            }
+            else {
+                sofar = sofar + ', ' + event.key;
+            }
+            pGuess.innerHTML = sofar;
+            left--;
+            pLeft.innerHTML = left;
+            if (left < 0) {
+                left = 9;
+                sofar = "";
+                losses++;
+                pLeft.innerHTML = left;
+                pLoss.innerHTML = losses;
+                pGuess.innerHTML = sofar;
             }
         })
     </script>
-    
+
 </body>
+
 </html>
