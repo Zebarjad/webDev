@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic Game (Basic)</title>
+</head>
+<body>
+    <h1>The Psychic Game</h1>
+    <p>Guess what letter I'm thinking of</p>
+    <span>Wins: </span><span id="p-wins"></span><br>
+    <span>Losses: </span><span id="p-los"></span><br>
+    <span>Guesses left: </span><span id="p-left"></span><br>
+    <span>Your guesses so far: </span><span id="p-guess"></span><br>
+
+    <script>
+        var wins = 0;
+        var losses = 0;
+        var left = 9;
+        var pWins = document.getElementById("p-wins");
+        var pLoss = document.getElementById("p-los");
+        var pLeft = document.getElementById("p-left");
+        var pGuess = document.getElementById("p-guess");
+        pWins.innerHTML = wins;
+        pLoss.innerHTML = losses;
+        pLeft.innerHTML = left;
+
+        //document.getElementById("p-guess").innerHTML = ;
+        document.addEventListener('keydown', function(event){
+            console.log(event.key);
+            pGuess.innerHTML = event.key;
+            var i;
+            for (i=o; i<left; i++) {
+                left--;
+            }
+        })
+
+        
+    </script>
+    
+</body>
+</html>
