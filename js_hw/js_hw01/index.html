@@ -29,20 +29,22 @@
         pWins.innerHTML = wins;
         pLoss.innerHTML = losses;
         pLeft.innerHTML = left;
-        var randIndex = Math.floor(Math.random()*alph.length);
+        var randIndex = Math.floor(Math.random() * alph.length);
         var randomChar = alph[randIndex];
         console.log(randomChar);
-        
-        
+
+
         document.addEventListener('keydown', function (event) {
             if (alph.indexOf(event.key) == -1) {
                 return;
             }
-            if (event.key == randomChar){
+            if (event.key == randomChar) {
                 wins++;
                 pWins.innerHTML = wins;
-                left = 9; 
-                sofar = "";
+                sofar = event.key;
+                pGuess.innerHTML = sofar;
+                left = 9;
+                return;
             }
             console.log(event.key);
             if (sofar == "") {
