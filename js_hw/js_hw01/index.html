@@ -44,12 +44,16 @@
                 pWins.innerHTML = wins;
                 sofar = sofar + ', ' + event.key;
                 pGuess.innerHTML = sofar;
-                left = 9;
-                pLeft.innerHTML = left;
-                sofar = '';
-                randIndex = Math.floor(Math.random() * alph.length);
-                randomChar = alph[randIndex];
-                console.log(randomChar);
+                function myFunction(){
+                    left = 9;
+                    pLeft.innerHTML = left;
+                    sofar = '';
+                    randIndex = Math.floor(Math.random() * alph.length);
+                    randomChar = alph[randIndex];
+                    console.log(randomChar);
+                }
+                alert("You won");
+                onclick = myFunction();
                 return;
             }
             console.log(event.key);
