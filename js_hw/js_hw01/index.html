@@ -17,6 +17,7 @@
     <span>Your guesses so far: </span><span id="p-guess"></span><br>
 
     <script>
+        'use strict'
         var wins = 0;
         var losses = 0;
         var left = 9;
@@ -45,8 +46,10 @@
                 pGuess.innerHTML = sofar;
                 left = 9;
                 pLeft.innerHTML = left;
-                sofar = "";
-                pGuess.innerHTML = sofar;
+                sofar = '';
+                randIndex = Math.floor(Math.random() * alph.length);
+                randomChar = alph[randIndex];
+                console.log(randomChar);
                 return;
             }
             console.log(event.key);
