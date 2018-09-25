@@ -41,9 +41,12 @@
             if (event.key == randomChar) {
                 wins++;
                 pWins.innerHTML = wins;
-                sofar = event.key;
+                sofar = sofar + ', ' + event.key;
                 pGuess.innerHTML = sofar;
                 left = 9;
+                pLeft.innerHTML = left;
+                sofar = "";
+                pGuess.innerHTML = sofar;
                 return;
             }
             console.log(event.key);
