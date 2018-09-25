@@ -30,7 +30,9 @@
         pWins.innerHTML = wins;
         pLoss.innerHTML = losses;
         pLeft.innerHTML = left;
+        // Generates random index
         var randIndex = Math.floor(Math.random() * alph.length);
+        // Using the same random index gets a random char
         var randomChar = alph[randIndex];
         console.log(randomChar);
 
